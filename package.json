@@ -4,18 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/karma start"
+    "test": "./node_modules/.bin/karma start",
+    "jasmine": "node ./node_modules/jasmine/bin/jasmine.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "brfs": "^2.0.2",
+    "browserify": "^16.3.0",
     "install": "^0.12.2",
     "jasmine": "^3.4.0",
     "jasmine-core": "^3.4.0",
     "karma": "^4.1.0",
+    "karma-browserify": "^6.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "^2.0.0",
     "karma-coverage": "^1.1.2",
-    "karma-jasmine": "^2.0.1"
+    "karma-jasmine": "^2.0.1",
+    "watchify": "^3.11.1"
   }
 }
