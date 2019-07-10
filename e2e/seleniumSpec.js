@@ -12,7 +12,6 @@ describe('Check that we have window object', function () {
     // Open the TECH.insight website in the browser before each test is run
     beforeEach(function (done) {
         this.driver = new selenium.Builder().withCapabilities(selenium.Capabilities.chrome()).build();
-        this.driver.manage().timeouts().setScriptTimeout(10000);
         index++;
         if (index >= urls.length) index = 0;
         this.driver.get(urls[index]).then(done);

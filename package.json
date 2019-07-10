@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/karma start",
     "jasmine": "node ./node_modules/jasmine/bin/jasmine.js",
-    "e2e": "node ./node_modules/jasmine/bin/jasmine.js"
+    "e2e": "node ./node_modules/jasmine/bin/jasmine.js ./e2e/*[Ss]pec.js "
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +22,7 @@
     "karma-cli": "^2.0.0",
     "karma-coverage": "^1.1.2",
     "karma-jasmine": "^2.0.1",
+    "selenium-webdriver": "^4.0.0-alpha.4",
     "watchify": "^3.11.1"
   }
 }
