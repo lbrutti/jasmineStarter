@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/karma start",
     "jasmine": "node ./node_modules/jasmine/bin/jasmine.js",
-    "e2e": "node ./node_modules/jasmine/bin/jasmine.js ./e2e/*[Ss]pec.js "
+    "e2e": "node ./node_modules/jasmine/bin/jasmine.js ./e2e/*[jJ]ourney.js "
   },
   "author": "",
   "license": "ISC",
