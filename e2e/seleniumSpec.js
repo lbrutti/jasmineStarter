@@ -1,42 +1,39 @@
-var selenium = require('selenium-webdriver');
+const { Builder, By, Capabilities } = require('selenium-webdriver');
 
 jasmine.getEnv().defaultTimeoutInterval = 10000; // in microseconds.
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000; // in microseconds.
-describe('Check that we have window object', function () {
-    var urls = [
-        'http://www.google.com/',
-        'http://www.yahoo.com/',
-        'https://idanmorblog.wordpress.com/'
-    ];
-    var index = -1;
-    // Open the TECH.insight website in the browser before each test is run
-    beforeEach(function (done) {
-        this.driver = new selenium.Builder().withCapabilities(selenium.Capabilities.chrome()).build();
-        index++;
-        if (index >= urls.length) index = 0;
-        this.driver.get(urls[index]).then(done);
-    });
-    // Close the website after each test is run (so that it is opened fresh each time)
-    afterEach(function (done) {
-        this.driver.quit().then(done);
-    });
-    // the function to test the rule - the Jasmine it object
-    var checkWindow = function (url) {
-        it('Check if there is a window object on page: ' + url, function (done) {
-            this.driver.executeAsyncScript(
-                function (inputY) {
-                    arguments[arguments.length - 1]({ 'x': !!window, 'y': inputY });
-                },
-                "IdanMor"
-            ).then(function (res) {
-                expect(res.x).toBe(true);
-                expect(res.y).toBe('IdanMor');
-                done();
-            });
-        });
-    };
-    //run all the tests on each url
-    urls.forEach(function (url) {
-        checkWindow(url);
-    });
+const JasmineConsoleReporter = require('jasmine-console-reporter');
+
+let consoleReporter = new JasmineConsoleReporter({
+    colors: 1,           // (0|false)|(1|true)|2
+    cleanStack: 1,       // (0|false)|(1|true)|2|3
+    verbosity: 4,        // (0|false)|1|2|(3|true)|4
+    listStyle: 'indent', // "flat"|"indent"
+    activity: false
+});
+
+jasmine.getEnv().addReporter(consoleReporter);
+describe('Home page user journey', function () {
+  const APP_URL = "http://localhost:8100";
+  let driver;
+  // go to home page before starting tests
+  beforeEach(function (done) {
+    driver = new Builder().withCapabilities(Capabilities.chrome()).build();
+    driver.get(APP_URL).then(done);
+  });
+  // Close the website after each test is run (so that it is opened fresh each time)
+  afterEach(function (done) {
+    driver.quit().then(done);
+  });
+
+  it("Should have a link to Ionic Framework documentation page", function (done) {
+    const DOC_PAGE = "http://ionicframework.com/docs/v3";
+    driver.findElement(By.linkText("docs"))
+      .then(link => link.getAttribute("href"))
+      .then(url => {
+        expect(url).toBe(DOC_PAGE);
+        done();
+      })
+      .catch(err => fail(e));
+  });
 });
