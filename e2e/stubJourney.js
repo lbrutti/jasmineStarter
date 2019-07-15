@@ -28,11 +28,15 @@ describe('A stub for selenium based tests', function () {
 
   it("Should show Selenium related sites - with async/await", async (done) => {
     const EXPECTED_TITLE = "selenium-webdriver npm - Cerca con Google";
-    await driver.findElement(By.name("q"))
-                .sendKeys("selenium-webdriver npm", Key.RETURN);
-    await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
-    let title = await driver.getTitle();
-    expect(title).toBe(EXPECTED_TITLE);
-    done();
+    try {
+      await driver.findElement(By.name("q"))
+        .sendKeys("selenium-webdriver npm", Key.RETURN);
+      await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
+      let title = await driver.getTitle();
+      expect(title).toBe(EXPECTED_TITLE);
+      done();
+    } catch (error) {
+      fail(error);
+    }
   });
 });
