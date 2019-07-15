@@ -1,7 +1,7 @@
 /**
  * Just a dumb spec to test module import in Karma applying browserify preprocessor
  */
-const Greetings = require("../src/greetings");
+const Greetings = require("../src/Greetings");
 
 describe("Greetings module logic",()=>{
     it("Should say HELLO", ()=>{
