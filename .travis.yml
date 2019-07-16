@@ -4,8 +4,8 @@ language: node_js
 node_js:  
   "12.6.0"
 
-# addons:
-#   chrome
+addons:
+  chrome: stable
 
 before_script:
   - wget https://chromedriver.storage.googleapis.com/75.0.3770.90/chromedriver_linux64.zip -P ~/
@@ -14,5 +14,4 @@ before_script:
   - sudo mv -f ~/chromedriver /usr/local/share/
   - sudo chmod +x /usr/local/share/chromedriver
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
-  # - sudo ln -s /usr/bin/google-chrome-stable /usr/bin/google-chrome
   - sleep 3
