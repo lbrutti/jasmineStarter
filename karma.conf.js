@@ -29,7 +29,8 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'spec/**/*.js': [ 'browserify' ],
-      'src/**/*.js': [ 'browserify' ]
+      'src/**/*.js': [ 'browserify', 'coverage' ],
+      
     },
 
     browserify: {
@@ -40,7 +41,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['spec'],
+    reporters: ['spec', 'coverage'],
 
 
     // web server port
@@ -71,6 +72,13 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    coverageReporter: {
+      dir: 'coverage',
+      subdir: 'report',
+      type: 'lcovonly'
+      // Would output the results into: .'/coverage/report/'
+    }
   })
 }
