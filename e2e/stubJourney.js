@@ -3,10 +3,10 @@ const { Builder, By, Capabilities, until, Key } = require('selenium-webdriver');
 describe('A stub for selenium based tests', function () {
   const APP_URL = "https://www.google.com/";
   let driver;
-  let chrome = require("selenium-webdriver/chrome");
-  let options = new chrome.Options();
   // go to home page before starting tests
   beforeEach(function (done) {
+    let chrome = require("selenium-webdriver/chrome");
+    let options = new chrome.Options();
     let caps = Capabilities.chrome();
     options.addArguments("--no-sandbox");
     options.addArguments("start-maximized");
