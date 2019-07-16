@@ -1,7 +1,7 @@
 const { Builder, By, Capabilities, until, Key } = require('selenium-webdriver');
 
 describe('A stub for selenium based tests', function () {
-  const APP_URL = "https://www.google.com/";
+  const APP_URL = "https://www.google.com/?hl=it";
   let driver;
   // go to home page before starting tests
   beforeEach(function (done) {
@@ -10,7 +10,8 @@ describe('A stub for selenium based tests', function () {
     let caps = Capabilities.chrome();
     options.addArguments("--no-sandbox");
     options.addArguments("--headless");
-    options.addArguments("start-maximized");
+    options.addArguments("--disable-gpu");
+    // options.addArguments("start-maximized");
     caps.merge(options);
     driver = new Builder().withCapabilities(caps).build();
     driver.get(APP_URL).then(done);
