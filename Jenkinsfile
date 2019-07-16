@@ -1,10 +1,26 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') { 
-            steps {
-                sh 'npm install' 
-            }
-        }
+  agent any
+    
+  tools {nodejs "node"}
+    
+  stages {
+        
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/lbrutti/jasmineStarter'
+      }
     }
+        
+    stage('Install dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+     
+    stage('Test') {
+      steps {
+         sh 'npm test'
+      }
+    }      
+  }
 }
