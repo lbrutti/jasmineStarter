@@ -17,4 +17,4 @@ before_script:
   - sleep 3
 
 after_success:
-  - cat ./coverage/report/lcov.info | ./node_modules/.bin/coveralls.cmd
+  - cat ./coverage/report/lcov.info | ./node_modules/.bin/coveralls
