@@ -26,6 +26,7 @@
     "karma-coverage": "^1.1.2",
     "karma-jasmine": "^2.0.1",
     "karma-spec-reporter": "0.0.32",
+    "puppeteer": "^1.18.1",
     "selenium-webdriver": "^4.0.0-alpha.4",
     "watchify": "^3.11.1"
   }
