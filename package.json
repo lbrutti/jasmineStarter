@@ -7,13 +7,14 @@
     "test": "./node_modules/.bin/karma start && node ./node_modules/jasmine/bin/jasmine.js ./e2e/*[jJ]ourney.js",
     "jasmine": "node ./node_modules/jasmine/bin/jasmine.js",
     "e2e": "node ./node_modules/jasmine/bin/jasmine.js ./e2e/*[jJ]ourney.js ",
-    "karma" : "./node_modules/.bin/karma start"
+    "karma": "./node_modules/.bin/karma start"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "brfs": "^2.0.2",
     "browserify": "^16.3.0",
+    "coveralls": "^3.0.5",
     "install": "^0.12.2",
     "jasmine": "^3.4.0",
     "jasmine-console-reporter": "^3.1.0",
