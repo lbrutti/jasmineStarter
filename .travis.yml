@@ -4,6 +4,9 @@ language: node_js
 node_js:  
   "12.6.0"
 
+addons:
+  chrome: stable
+
 before_script:
   - wget https://chromedriver.storage.googleapis.com/75.0.3770.90/chromedriver_linux64.zip -P ~/
   - unzip ~/chromedriver_linux64.zip -d ~/
