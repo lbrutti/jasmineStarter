@@ -9,6 +9,7 @@ describe('A stub for selenium based tests', function () {
     let options = new chrome.Options();
     let caps = Capabilities.chrome();
     options.addArguments("--no-sandbox");
+    options.addArguments("--headless");
     options.addArguments("start-maximized");
     caps.merge(options);
     driver = new Builder().withCapabilities(caps).build();
