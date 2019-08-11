@@ -2,8 +2,8 @@
  * just a dirty way to set jasmine reporter globally
  */
 
-jasmine.getEnv().defaultTimeoutInterval = 10000; // in microseconds.
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000; // in microseconds.
+jasmine.getEnv().defaultTimeoutInterval = 60000; // in microseconds.
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000; // in microseconds.
 const JasmineConsoleReporter = require('jasmine-console-reporter');
 
 let consoleReporter = new JasmineConsoleReporter({
